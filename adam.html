@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Exercise</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+
+<!-- exercise 2 -->
+<div id="ex2">
+    <button @click="addParagraph">Add Paragraph</button>
+    <div v-for="(paragraph, index) in paragraphs" :key="index">
+        <p>{{ paragraph }}</p>
+    </div>
+</div>
+
+<!-- exercise 3 -->
+<div id="ex3">
+    <h4>{{ counter }}</h4>
+    <button @click="incrementCounter">Increment Counter</button>
+</div>
+
+<!-- exercise 4 -->
+<div id="ex4">
+    <p :style="{ color: textColor }">Color</p>
+    <button @click="changeColor('red')">Red</button>
+    <button @click="changeColor('blue')">Blue</button>
+    <button @click="changeColor('green')">Green</button>
+</div>
+
+<script>
+    
+    // Exercise 2
+    new Vue({
+        el: '#ex2',
+        data: {
+            paragraphs: [],
+        },
+        methods: {
+            addParagraph() {
+                this.paragraphs.push('You pressed a button!');
+            },
+        },
+    });
+
+    // Exercise 3
+    new Vue({
+        el: '#ex3',
+        data: {
+            counter: 0,
+        },
+        methods: {
+            incrementCounter() {
+                this.counter++;
+            },
+        },
+    });
+
+    // Exercise 4
+    new Vue({
+        el: '#ex4',
+        data: {
+            textColor: 'black',
+        },
+        methods: {
+            changeColor(color) {
+                this.textColor = color;
+            },
+        },
+    });
+</script>
+
+</body>
+</html>
